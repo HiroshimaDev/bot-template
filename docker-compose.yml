@@ -19,6 +19,7 @@ services:
     build: .
     env_file:
       - .env
+    
     restart: always
     depends_on:
       - postgres
