@@ -1,0 +1,5 @@
+aiogram==2.25.1
+psycopg2==2.9.1
+python-dotenv==0.21.1
+SQLAlchemy==2.0.4
+redis==4.5.1
