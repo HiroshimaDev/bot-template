@@ -20,7 +20,6 @@ class DataAccessLayer:
         self.Session = None
         self.use_dev = use_dev
 
-
     def connect(self) -> bool:
         """Connect to database.
         :return: True if connection was successful, False otherwise.
@@ -54,7 +53,6 @@ class DataAccessLayer:
             logger.error(e)
             return False
     
-    
     def __enter__(self) -> Ses:
         """Enter the runtime context related to this object."""
         if self.engine is None:
@@ -80,7 +78,6 @@ class DataAccessLayer:
             self.session.close()
         if self.engine is not None:
             self.engine.dispose()
-    
     
     def __call__(self) -> Ses:
         if self.engine is None:

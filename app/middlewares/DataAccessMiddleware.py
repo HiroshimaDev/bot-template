@@ -1,8 +1,10 @@
 from typing import Any, Awaitable, Callable, Dict
-from aiogram.dispatcher.middlewares import BaseMiddleware
+from aiogram.dispatcher.middlewares.base import BaseMiddleware
 from aiogram.types import Message, CallbackQuery
 from app.database import Dal, User
+from utils import get_logger
 
+logger = get_logger(__name__)
 
 class DataAccessMiddleware(BaseMiddleware):
     """
@@ -24,6 +26,7 @@ class DataAccessMiddleware(BaseMiddleware):
         """
         On process post process.
         """
+        logger.debug("Session closed.")
         self.session.close()
 
     async def __call__(self, handler, event, data: Dict[str, Any]) -> Any:
